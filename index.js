@@ -1,5 +1,10 @@
 const express = require('express'); //import de la bibliothèque Express
 const app = express(); //instanciation d'une application Express
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '/')));
+
+
 let compteur = 0; // État initial du compteur
 let allMsgs = [
     { "msg" : "Hello World", "pseudo" : "John", "date" : "2025-03-07T14:48:00Z" },
@@ -18,7 +23,7 @@ app.use(function(req, res, next) {
 // Ici faut faire faire quelque chose à notre app...
 // On va mettre les "routes"  == les requêtes HTTP acceptéés par notre application.
 app.get("/", function(req, res) {
-  res.send("Hello")
+    res.sendFile(path.join(__dirname, 'index.html'));
 })
 
 // Juste pour tester

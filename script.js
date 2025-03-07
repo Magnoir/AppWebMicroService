@@ -1,6 +1,3 @@
-require('dotenv').config(); // Pour lire le fichier .env
-const BACKEND_URL = process.env.BACKEND_URL;
-
 // Partie Client 3)
 // Fonction factorielle
 function fact(n) {
@@ -34,7 +31,7 @@ let colorMode = ["black", "white"];
 let msgs;
 
 // Récupération des messages
-fetch(`${BACKEND_URL}/msg/getAll`)
+fetch('/msg/getAll')
 .then(function(response) {
     return response.json();
 })
@@ -70,7 +67,7 @@ btnMaj.addEventListener("click", function(){
     if (textArea.value.length > 0 && pseudo.value.length > 0){
 
         let responseNber;
-        fetch(`${BACKEND_URL}/msg/post/` + textArea.value + '?pseudo=' + pseudo.value + '&date=' + new Date().toISOString())
+        fetch('/msg/post/' + textArea.value + '?pseudo=' + pseudo.value + '&date=' + new Date().toISOString())
         .then(function(response) {
             return response.json();
         })
