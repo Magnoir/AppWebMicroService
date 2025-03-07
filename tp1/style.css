@@ -1,0 +1,27 @@
+:root {
+  --background-color: black;
+  --text-color: white;
+  --button-background-color: white;
+  --button-text-color: black;
+  --heading-color: yellow;
+}
+
+.container {
+  margin: 1em;
+  padding: 1em;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 1em;
+}
+
+h1 {
+  color: var(--heading-color);
+}
+
+button {
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+}
