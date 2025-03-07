@@ -1,22 +1,27 @@
+/* Variables générales permettant l'implémentation du dark mode */
 :root {
   --background-color: black;
   --text-color: white;
   --button-background-color: white;
   --button-text-color: black;
-  --heading-color: yellow;
+}
+/* Couleur de fond de la page */
+body {
+  background-color: gray;
 }
 
+/*  Marge et padding pour le container */
 .container {
-  margin: 1em;
-  padding: 1em;
-  flex-direction: column;
+  margin: 2em auto;
+  padding: 1.5em;
   background-color: var(--background-color);
   color: var(--text-color);
   border-radius: 1em;
 }
 
+/* Couleur du titre h1 */
 h1 {
-  color: var(--heading-color);
+  color: red;
 }
 
 button {

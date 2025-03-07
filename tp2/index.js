@@ -17,15 +17,16 @@ app.use(function(req, res, next) {
 
 // Ici faut faire faire quelque chose à notre app...
 // On va mettre les "routes"  == les requêtes HTTP acceptéés par notre application.
-
 app.get("/", function(req, res) {
   res.send("Hello")
 })
 
+// Juste pour tester
 app.get('/test/*', function(req, res) {
     res.json({"msg": req.url.substring(6)});
 });
 
+// Route pour obtenir la valeur du compteur
 app.get('/cpt/query', (req, res) => {
     res.json({ compteur: compteur });
 });
@@ -49,35 +50,7 @@ app.get('/cpt/inc', (req, res) => {
     }
 });
 
-// Route pour compter le nombre de messages
-app.get('/msg/nber', function(req, res) {
-    if (allMsgs === undefined) {
-        res.json({ "nber": 0 });
-    }
-    else {
-        res.json({ "nber": allMsgs.length });
-    }
-});
-
-app.get('/msg/getAll', function(req, res) {
-    if (allMsgs !== undefined) {
-        res.json({ "msgs": allMsgs });
-    }
-});
-
-app.get('/msg/post/*', function(req, res) {
-    let msg = req.url.substring(10).split("?")[0];
-    let pseudo = req.query.pseudo;
-    let date = req.query.date;
-    if (allMsgs !== undefined && msg !== undefined && pseudo !== undefined && date !== undefined) {
-        allMsgs.push({ "msg" : decodeURIComponent(msg), "pseudo" : pseudo, "date" : date });
-        res.json({ "nber": allMsgs.length-1 });
-    }
-    else {
-        res.json({ "nber": -1 });
-    }
-});
-
+// Route pour obtenir un message
 app.get('/msg/get/*', function(req, res) {
     let id = req.url.substring(9);
     let intId = parseInt(id, 10);
@@ -88,6 +61,40 @@ app.get('/msg/get/*', function(req, res) {
     }
 });
 
+// Route pour compter le nombre de messages
+app.get('/msg/nber', function(req, res) {
+    if (allMsgs === undefined) {
+        res.json({ "nber": 0 });
+    }
+    else {
+        res.json({ "nber": allMsgs.length });
+    }
+});
+
+// Route pour obtenir tous les messages
+app.get('/msg/getAll', function(req, res) {
+    if (allMsgs !== undefined) {
+        res.json({ "msgs": JSON.stringify(allMsgs) });
+    }
+});
+
+// Route pour ajouter un message
+app.get('/msg/post/*', function(req, res) {
+    let msg = req.url.substring(10).split("?")[0];
+    let pseudo = req.query.pseudo;
+    let date = req.query.date;
+    if (allMsgs !== undefined && msg !== undefined && pseudo !== undefined && date !== undefined) {
+        allMsgs.push({ "msg" : decodeURIComponent(msg), "pseudo" : pseudo, "date" : date });
+        res.json({ "nber": allMsgs.length-1 });
+    }
+    else {
+        res.json({ "code": -1 });
+    }
+});
+
+
+
+// Route pour supprimer un message
 app.get('/msg/del/*', function(req, res) {
     let id = req.url.substring(9);
     let intId = parseInt(id, 10);

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panier de fruits</title>
+    <!-- Lien vers le fichier CSS externe -->
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="container">
-        <h1 class="title"">Fruits</h1>
+        <!-- Titre de la page -->
+        <h1 class="title">Messages (liste de fruits par défaut)</h1>
+        <!-- Liste de fruits -->
         <ul id="msgs">
             <li>Banane</li>
             <li>Fraise</li>
@@ -16,12 +19,17 @@
             <li>Kiwi</li>
             <li>Orange</li>
         </ul>
+        <!-- Zone de texte pour l'entrée du message utilisateur -->
         <textarea id="txtMsg" rows="4" cols="50" placeholder="Votre message..."></textarea>
         <br>
+        <!-- Champ de saisie pour le pseudo utilisateur -->
         <input type="text" id="txtPseudo" placeholder="Pseudo">
-        <button id="btnMaj">Mise à jour</button>
-        <button id="btnStyle">Changer de style</button>
+        <!-- Bouton pour mettre à jour la liste -->
+        <button id="btnMaj" type="button" aria-label="Mettre à jour la liste">Mise à jour</button>
+        <!-- Bouton pour changer le style de la page -->
+        <button id="btnStyle" type="button" aria-label="Changer le style de la page">Changer de style</button>
     </div>
+    <!-- Lien vers le fichier JavaScript externe -->
     <script src="script.js"></script>
   </body>
 </html>
