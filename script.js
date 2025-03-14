@@ -53,8 +53,17 @@ function update(tab){
         return;
     }
 
-    document.getElementById("msgs").innerHTML = "";
+    tab.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
 
+        if (dateA - dateB !== 0) {
+            return dateB - dateA;
+        }
+        return b.pseudo.localeCompare(a.pseudo);
+    });
+    document.getElementById("msgs").innerHTML = "";
+    
     tab.forEach(element => {
         const li = document.createElement("li");
         li.textContent = `${element.msg} - ${element.pseudo} - ${element.date}`;

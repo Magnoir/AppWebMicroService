@@ -9,7 +9,7 @@ let compteur = 0; // État initial du compteur
 let allMsgs = [
     { "msg" : "Hello World", "pseudo" : "John", "date" : "2025-03-07T14:48:00Z" },
     { "msg" : "foobar", "pseudo" : "Jane", "date" : "2025-03-06T14:48:00Z" },
-    { "msg" : "I love cats", "pseudo" : "Alice", "date" : "2025-03-05T14:48:00Z" },
+    { "msg" : "I love cats", "pseudo" : "Alice", "date" : "2025-03-06T14:48:00Z" },
     { "msg" : "CentraleSupelec Forever", "pseudo" : "Bob", "date" : "2025-03-04T14:48:00Z" },
 ];
 
